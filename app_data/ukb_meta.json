@@ -1,0 +1,19 @@
+{
+  "cohort_key": "ukb",
+  "cohort_label": "UK Biobank",
+  "outcome_label": "Primary composite outcome",
+  "x_label": "SPISE (Wave 1)",
+  "y_label": "Delta ePVS (W2 - W1)",
+  "x_cut": 6.0313,
+  "y_cut": 0.1774,
+  "x_range": [2.8901, 10.9238],
+  "y_range": [-1.1805, 1.1162],
+  "n_total": 15069,
+  "phenotype_levels": ["Type IV: Reference", "Type I: Metabolic-only", "Type III: Non-metabolic congestion", "Type II: Malignant CKM"],
+  "phenotype_colors": {
+    "Type IV: Reference": "#7FC97F",
+    "Type I: Metabolic-only": "#FDB462",
+    "Type III: Non-metabolic congestion": "#80B1D3",
+    "Type II: Malignant CKM": "#FB8072"
+  }
+}
