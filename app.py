@@ -23,20 +23,28 @@ st.set_page_config(
 CUSTOM_CSS = """
 <style>
 .block-container {
-    padding-top: 1.2rem;
+    padding-top: 3.2rem;
     padding-bottom: 2rem;
     max-width: 1400px;
 }
+
 .main-title {
-    font-size: 2.0rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    margin-bottom: 0.2rem;
+    line-height: 1.28;
+    margin-top: 0.25rem;
+    margin-bottom: 0.35rem;
+    overflow: visible;
+    word-break: break-word;
 }
+
 .sub-title {
     font-size: 1.0rem;
     color: #4b5563;
-    margin-bottom: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
 }
+
 .panel {
     border: 1px solid #e5e7eb;
     border-radius: 18px;
@@ -45,6 +53,7 @@ CUSTOM_CSS = """
     box-shadow: 0 1px 8px rgba(0,0,0,0.04);
     margin-bottom: 14px;
 }
+
 .kpi-card {
     border-radius: 16px;
     padding: 14px 16px;
@@ -52,21 +61,25 @@ CUSTOM_CSS = """
     border: 1px solid #e5e7eb;
     box-shadow: 0 1px 6px rgba(0,0,0,0.03);
 }
+
 .kpi-label {
     font-size: 0.90rem;
     color: #6b7280;
     margin-bottom: 0.25rem;
 }
+
 .kpi-value {
     font-size: 1.65rem;
     font-weight: 800;
     line-height: 1.2;
 }
+
 .kpi-sub {
     font-size: 0.82rem;
     color: #6b7280;
     margin-top: 0.2rem;
 }
+
 .badge {
     display: inline-block;
     padding: 0.30rem 0.70rem;
@@ -77,31 +90,37 @@ CUSTOM_CSS = """
     margin-bottom: 0.35rem;
     border: 1px solid transparent;
 }
+
 .badge-red {
     background: #fee2e2;
     color: #991b1b;
     border-color: #fecaca;
 }
+
 .badge-orange {
     background: #ffedd5;
     color: #9a3412;
     border-color: #fdba74;
 }
+
 .badge-blue {
     background: #dbeafe;
     color: #1d4ed8;
     border-color: #93c5fd;
 }
+
 .badge-green {
     background: #dcfce7;
     color: #166534;
     border-color: #86efac;
 }
+
 .badge-slate {
     background: #f3f4f6;
     color: #374151;
     border-color: #d1d5db;
 }
+
 .card {
     border-radius: 18px;
     padding: 18px 18px 16px 18px;
@@ -109,51 +128,76 @@ CUSTOM_CSS = """
     border: 1px solid #e5e7eb;
     box-shadow: 0 1px 8px rgba(0,0,0,0.04);
 }
+
 .card-info {
     background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
     border-color: #bfdbfe;
 }
+
 .card-warning {
     background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
     border-color: #fed7aa;
 }
+
 .card-success {
     background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%);
     border-color: #a7f3d0;
 }
+
 .card-danger {
     background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%);
     border-color: #fecaca;
 }
+
 .card-title {
     font-size: 1.02rem;
     font-weight: 800;
     margin-bottom: 0.35rem;
 }
+
 .card-body {
     font-size: 0.93rem;
     line-height: 1.55;
     color: #1f2937;
 }
+
 .card-foot {
     font-size: 0.82rem;
     color: #6b7280;
     margin-top: 0.55rem;
 }
+
 .small-note {
     color: #6b7280;
     font-size: 0.85rem;
 }
+
 .section-title {
     font-size: 1.18rem;
     font-weight: 800;
     margin: 0.3rem 0 0.8rem 0;
 }
+
 .hr-soft {
     border: 0;
     height: 1px;
     background: #e5e7eb;
     margin: 1rem 0 1.2rem 0;
+}
+
+/* optional: slightly reduce top chrome interference */
+div[data-testid="stToolbar"] {
+    top: 0.4rem;
+}
+
+@media (max-width: 900px) {
+    .block-container {
+        padding-top: 2.2rem;
+    }
+    .main-title {
+        font-size: 1.7rem;
+        line-height: 1.32;
+    }
 }
 </style>
 """
@@ -992,10 +1036,10 @@ if risk_row is not None:
 # =========================
 # Header
 # =========================
+st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
 st.markdown(f"<div class='main-title'>{tr('title', lang_mode)}</div>", unsafe_allow_html=True)
 st.markdown(f"<div class='sub-title'>{tr('subtitle', lang_mode)}</div>", unsafe_allow_html=True)
-st.caption(tr("caption", lang_mode))
-
+st.markdown(f"<div class='small-note' style='margin-bottom: 0.8rem;'>{tr('caption', lang_mode)}</div>", unsafe_allow_html=True)
 
 # =========================
 # KPI row
